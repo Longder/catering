@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.longder.catering.repository.SysUserRepository">
+    <insert id="insertOne" parameterType="com.longder.catering.entity.SysUser" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO sys_user(user_name_,password_,phone_,enabled_)
+        VALUES (#{userName},#{password},#{phone},#{enabled})
+    </insert>
+
+    <select id="selectByUserName" parameterType="string" resultMap="sysUserMap">
+        SELECT * FROM sys_user WHERE user_name_ = #{userName}
+    </select>
+
+    <select id="selectRoleNamesByUserId" parameterType="long" resultType="com.longder.catering.entity.SysRole">
+      SELECT role_ FROM sys_user_role where sys_user_id_ = #{userId}
+    </select>
+
+    <resultMap id="sysUserMap" type="com.longder.catering.entity.SysUser">
+        <result column="id_" property="id"/>
+        <result column="user_name_" property="userName"/>
+        <result column="password_" property="password"/>
+        <result column="phone_" property="phone"/>
+        <result column="enabled_" property="enabled"/>
+    </resultMap>
+</mapper>
