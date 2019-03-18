@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<!--引入统一头-->
 <head th:include="import/head :: head"></head>
+<!--引入统一头-->
 <body>
 <section class="content-header">
     <h1>&nbsp;</h1>
@@ -16,6 +16,9 @@
             <h3 class="box-title">用户列表</h3>
         </div>
         <div class="box-body">
+            <div class="btn-group">
+                <a th:href="@{/admin/user/toAdd}" class="btn btn-block btn-success btn-lg">新增用户</a>
+            </div>
             <table class="table table-hover table-bordered">
                 <tbody>
                 <tr>
@@ -25,7 +28,7 @@
                     <th>角色</th>
                     <th>操作</th>
                 </tr>
-                <tr  th:each="user: ${userList}">
+                <tr th:each="user: ${userList}">
                     <td th:text="${user.id}"></td>
                     <td th:text="${user.userName}"></td>
                     <td th:text="${user.phone}"></td>
@@ -33,7 +36,7 @@
                         <span class="label" th:classappend="${user.role.label}" th:class="label " th:text="${user.role.displayName}"></span>
                     </td>
                     <td>
-                        <button class="btn btn-sm btn-warning">修改</button>
+                        <a th:href="@{/admin/user/toUpdate?userId={userId}(userId=${user.id})}" class="btn btn-sm btn-warning">修改</a>
                     </td>
                 </tr>
                 </tbody>

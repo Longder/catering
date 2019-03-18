@@ -1,9 +1,12 @@
 package com.longder.catering.controller;
 
+import com.longder.catering.entity.SysUser;
 import com.longder.catering.service.UserManageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -26,9 +29,5 @@ public class AdminController {
         return "admin/dashboard";
     }
 
-    @RequestMapping("/userList")
-    public String userList(Model model){
-        model.addAttribute("userList",userManageService.listUsers());
-        return "admin/user-list";
-    }
+
 }

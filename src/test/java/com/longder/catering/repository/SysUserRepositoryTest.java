@@ -3,6 +3,7 @@ package com.longder.catering.repository;
 import com.longder.catering.BaseTest;
 import com.longder.catering.entity.SysRole;
 import com.longder.catering.entity.SysUser;
+import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -34,5 +35,12 @@ public class SysUserRepositoryTest extends BaseTest {
         Long userId = 1L;
         List<SysRole> roleList = sysUserRepository.selectRolesByUserId(userId);
         System.out.println(roleList.size());
+    }
+
+    @Test
+    public void testSelectById(){
+        Long userId = 1L;
+        SysUser sysUser = sysUserRepository.selectById(userId);
+        Assert.assertEquals("admin",sysUser.getUserName());
     }
 }

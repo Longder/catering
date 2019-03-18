@@ -13,4 +13,23 @@ public interface UserManageService {
      * @return
      */
     List<SysUser> listUsers();
+
+    /**
+     * 用户民是否存在
+     * @param username
+     * @return
+     */
+    boolean isUsernameExist(String username);
+
+    /**
+     * 添加一个用户
+     */
+    void addUser(SysUser sysUser);
+
+    /**
+     * 查询一个用户
+     * @param userId
+     * @return
+     */
+    SysUser getOne(Long userId);
 }

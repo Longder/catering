@@ -15,7 +15,7 @@ public class SysUser extends BaseEntity {
     /**
      * 密码
      */
-    private String password;
+    private String password = "1234";
     /**
      * 电话号码
      */

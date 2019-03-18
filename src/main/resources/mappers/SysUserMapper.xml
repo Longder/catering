@@ -6,6 +6,10 @@
         VALUES (#{userName},#{password},#{phone},#{enabled})
     </insert>
 
+    <insert id="insertOneRole" parameterType="map">
+        insert into sys_user_role(sys_user_id_, role_) values(#{userId},#{roleName});
+    </insert>
+
     <select id="selectByUserName" parameterType="string" resultMap="sysUserMap">
         SELECT * FROM sys_user WHERE user_name_ = #{userName}
     </select>
@@ -17,6 +21,11 @@
     <select id="selectAllUsers" resultMap="sysUserMap">
         SELECT * FROM sys_user
     </select>
+
+    <select id="selectById" resultMap="sysUserMap" parameterType="java.lang.Long">
+        SELECT * FROM sys_user WHERE id_ = #{id}
+    </select>
+
 
     <resultMap id="sysUserMap" type="com.longder.catering.entity.SysUser">
         <result column="id_" property="id"/>

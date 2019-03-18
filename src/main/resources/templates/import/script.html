@@ -3,6 +3,9 @@
 <div th:fragment="script">
     <!-- jQuery 3 -->
     <script th:src="@{/static/bower_components/jquery/dist/jquery.min.js}"></script>
+    <!--jQuery Validate-->
+    <script th:src="@{/static/plugins/validate/jquery.validate.js}"></script>
+    <script th:src="@{/static/plugins/validate/messages_zh.js}"></script>
     <!-- Bootstrap 3.3.7 -->
     <script th:src="@{/static/bower_components/bootstrap/dist/js/bootstrap.min.js}"></script>
     <!-- SlimScroll -->
@@ -13,5 +16,22 @@
     <script th:src="@{/static/dist/js/adminlte.min.js}"></script>
     <!-- iCheck -->
     <script th:src="@{/static/plugins/iCheck/icheck.min.js}"></script>
+    <script type="text/javascript">
+        jQuery.validator.addMethod("isUsernameExist",function(value,element){
+            //默认存在
+            var flag = true;
+            $.ajax({
+                type:"post",
+                url:"/admin/user/checkUsername",
+                data:{username:value},
+                async:false,
+                success:function(data){
+                    console.log(data)
+                    flag = data;
+                }
+            });
+            return !flag;
+        },"用户名已存在");
+    </script>
 </div>
 </html>
