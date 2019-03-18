@@ -9,16 +9,18 @@ import java.util.Arrays;
  * 系统角色
  */
 public enum SysRole implements GrantedAuthority {
-    ROLE_ADMIN("ROLE_ADMIN","管理员"),
-    ROLE_USER("ROLE_USER","会员"),
-    ROLE_DELIVER("ROLE_DELIVER","送餐员");
+    ROLE_ADMIN("ROLE_ADMIN","管理员","label-danger"),
+    ROLE_USER("ROLE_USER","会员","label-primary"),
+    ROLE_DELIVER("ROLE_DELIVER","送餐员","label-success");
 
     private String name;
     private String displayName;
+    private String label;
 
-    SysRole(String name, String displayName) {
+    SysRole(String name, String displayName, String label) {
         this.name = name;
         this.displayName = displayName;
+        this.label = label;
     }
 
     @Override
@@ -41,6 +43,14 @@ public enum SysRole implements GrantedAuthority {
 
     public void setDisplayName(String displayName) {
         this.displayName = displayName;
+    }
+
+    public String getLabel() {
+        return label;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
     }
 
     public static SysRole getRole(String databaseValue){

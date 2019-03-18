@@ -14,4 +14,6 @@ public interface SysUserRepository {
     SysUser selectByUserName(String userName);
 
     List<SysRole> selectRolesByUserId(Long userId);
+
+    List<SysUser> selectAllUsers();
 }

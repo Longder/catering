@@ -1,6 +1,9 @@
 package com.longder.catering.controller;
 
+import com.longder.catering.service.UserManageService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -10,8 +13,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/admin")
 public class AdminController {
 
-    @RequestMapping("/detail")
-    public String testDetail(){
-        return "admin/detail";
+    @Autowired
+    private UserManageService userManageService;
+
+    @RequestMapping("/index")
+    public String index(){
+        return "admin/admin-index";
+    }
+
+    @RequestMapping("/dashboard")
+    public String dashboard(){
+        return "admin/dashboard";
+    }
+
+    @RequestMapping("/userList")
+    public String userList(Model model){
+        model.addAttribute("userList",userManageService.listUsers());
+        return "admin/user-list";
     }
 }

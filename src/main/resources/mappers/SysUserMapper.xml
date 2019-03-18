@@ -10,8 +10,12 @@
         SELECT * FROM sys_user WHERE user_name_ = #{userName}
     </select>
 
-    <select id="selectRoleNamesByUserId" parameterType="long" resultType="com.longder.catering.entity.SysRole">
+    <select id="selectRolesByUserId" parameterType="long" resultType="com.longder.catering.entity.SysRole">
       SELECT role_ FROM sys_user_role where sys_user_id_ = #{userId}
+    </select>
+
+    <select id="selectAllUsers" resultMap="sysUserMap">
+        SELECT * FROM sys_user
     </select>
 
     <resultMap id="sysUserMap" type="com.longder.catering.entity.SysUser">
