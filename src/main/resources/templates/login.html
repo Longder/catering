@@ -1,10 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>欢迎登陆</title>
-</head>
-<body>
-<h1>我是登录页</h1>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<!--引入统一头-->
+<head th:include="import/head :: head"></head>
+<body class="hold-transition login-page">
+<div class="login-box">
+    <div class="login-logo">
+        <a href="#"><b>后台登录</b></a>
+    </div>
+    <div class="login-box-body">
+        <p class="login-box-msg">后台管理系统登录</p>
+
+        <form th:action="@{/login_check}" method="post">
+            <div class="form-group has-feedback">
+                <input name="username" type="text" class="form-control" placeholder="用户名">
+                <span class="glyphicon glyphicon-user form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback">
+                <input name="password" type="password" class="form-control" placeholder="密码">
+                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+            </div>
+            <div class="row">
+                <div class="col-xs-4 col-xs-offset-8">
+                    <button type="submit" class="btn btn-primary btn-block btn-flat">登录</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!--引入统一JS-->
+<script th:replace="import/script :: script"></script>
+<script>
+    $(function () {
+        $('input').iCheck({
+            checkboxClass: 'icheckbox_square-blue',
+            radioClass: 'iradio_square-blue',
+            increaseArea: '20%' /* optional */
+        });
+    });
+</script>
 </body>
 </html>

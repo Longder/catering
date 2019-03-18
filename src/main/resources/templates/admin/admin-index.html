@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<!--引入统一头-->
+<head th:include="import/head :: head"></head>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+    <header class="main-header">
+        <a href="#" class="logo">
+            <span class="logo-mini"><b>餐</b></span>
+            <span class="logo-lg"><b>点餐平台后台管理</b></span>
+        </a>
+        <nav class="navbar navbar-static-top">
+            <!-- Sidebar toggle button-->
+            <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+                <span class="sr-only">Toggle navigation</span>
+            </a>
+
+            <div class="navbar-custom-menu">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- =============================================== -->
+
+    <!-- Left side column. contains the sidebar -->
+    <aside class="main-sidebar">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+            <!-- sidebar menu: : style can be found in sidebar.less -->
+            <ul class="sidebar-menu" data-widget="tree">
+                <li class="header">功能菜单</li>
+                <li>
+                    <a th:href="@{/admin/userList}" target="contentFrame">
+                        <i class="fa fa-calendar"></i> <span>用户管理</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../calendar.html">
+                        <i class="fa fa-calendar"></i> <span>菜品管理</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../calendar.html">
+                        <i class="fa fa-calendar"></i><span>订单管理</span>
+                    </a>
+                </li>
+            </ul>
+        </section>
+    </aside>
+
+    <div class="content-wrapper">
+        <iframe id="contentFrame" name="contentFrame" th:src="@{/admin/dashboard}" style="overflow:visible;" scrolling="yes"
+                frameborder="no" width="100%" height="1200px"></iframe>
+    </div>
+    <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+            <b>Version</b> 2.4.0
+        </div>
+        <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
+        reserved.
+    </footer>
+    <div class="control-sidebar-bg"></div>
+</div>
+
+
+<!--引入统一JS-->
+<script th:replace="import/script :: script"></script>
+<script>
+    $(document).ready(function () {
+        $('.sidebar-menu').tree()
+    })
+</script>
+</body>
+</html>
