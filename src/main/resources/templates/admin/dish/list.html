@@ -28,6 +28,15 @@
                     <th>金额</th>
                     <th>操作</th>
                 </tr>
+                <tr th:each="dish: ${dishes}">
+                    <td th:text="${dish.id}"></td>
+                    <td th:text="${dish.name}"></td>
+                    <td th:text="${dish.type}"></td>
+                    <td th:text="${dish.money}"></td>
+                    <td>
+                        <a th:href="@{/admin/dish/toUpdate?dishId={dishId}(dishId=${dish.id})}" class="btn btn-sm btn-warning">修改</a>
+                    </td>
+                </tr>
                 </tbody>
             </table>
         </div>

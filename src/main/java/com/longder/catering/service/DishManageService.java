@@ -10,4 +10,10 @@ import java.util.List;
 public interface DishManageService {
 
     List<Dish> listDishes();
+
+    /**
+     * 添加一个菜品
+     * @param dish
+     */
+    void addDish(Dish dish);
 }

@@ -3,18 +3,19 @@
 <mapper namespace="com.longder.catering.repository.DishRepository">
 
     <insert id="insertOne" parameterType="com.longder.catering.entity.Dish" useGeneratedKeys="true" keyProperty="id">
-        INSERT INTO dish(name_,description_,money_,img_url_) VALUES(#{name},#{description},#{money},#{imageUrl})
+        INSERT INTO dish(name_,description_,money_,img_url_,type) VALUES(#{name},#{description},#{money},#{imageUrl},#{type})
     </insert>
 
     <select id="selectAll" resultMap="dishMap">
       SELECT * FROM dish
     </select>
     <resultMap id="dishMap" type="com.longder.catering.entity.Dish">
+        <result column="id_" property="id"/>
         <result column="name_" property="name"/>
         <result column="type_" property="type"/>
         <result column="description_" property="description"/>
         <result column="enabled_" property="enabled"/>
-        <result column="money_" property="money_"/>
+        <result column="money_" property="money"/>
         <result column="img_url_" property="imageUrl"/>
     </resultMap>
 </mapper>

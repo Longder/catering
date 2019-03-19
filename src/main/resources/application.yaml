@@ -8,3 +8,5 @@ spring:
     url: jdbc:mysql://localhost:3306/catering?serverTimezone=GMT%2B8&characterEncoding=utf8&characterSetResults=utf8
     username: root
     password: fuck3148481
+system:
+  upload-dir: /Users/longder/Pictures/catering/

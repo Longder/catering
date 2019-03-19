@@ -1,6 +1,7 @@
 package com.longder.catering.entity;
 
 import lombok.Data;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.math.BigDecimal;
 
@@ -8,7 +9,7 @@ import java.math.BigDecimal;
  * 菜品
  */
 @Data
-public class Dish extends BaseEntity{
+public class Dish extends BaseEntity {
     /**
      * 名称
      */
@@ -33,4 +34,8 @@ public class Dish extends BaseEntity{
      * 有效性
      */
     private Boolean enabled = true;
+    /**
+     * 上传的文件
+     */
+    private MultipartFile file;
 }

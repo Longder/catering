@@ -1,10 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="import/head :: head"></head>
 <body>
-
+<section class="content-header">
+    <h1>&nbsp;</h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
+        <li class="active">新增菜品</li>
+    </ol>
+</section>
+<section class="content">
+    <div class="row">
+        <div class="col-xs-6 col-xs-offset-3">
+            <div class="box box-info">
+                <div class="box-header with-border">
+                    <h3 class="box-title">添加菜品</h3>
+                </div>
+                <form id="addUserForm" th:action="@{/admin/dish/add}" class="form-horizontal" method="post" enctype="multipart/form-data">
+                    <div class="box-body">
+                        <div id="user-name-form-group" class="form-group">
+                            <label for="name" class="col-sm-2 control-label">菜品名称</label>
+                            <div class="col-sm-10">
+                                <input name="name" type="text" class="form-control" id="name" placeholder="请输入菜品名称">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="type" class="col-sm-2 control-label">种类</label>
+                            <div class="col-sm-10">
+                                <select name="type" id="type" class="form-control">
+                                    <option>火锅</option>
+                                    <option>烧烤</option>
+                                    <option>小吃</option>
+                                    <option>快餐</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="money" class="col-sm-2 control-label">金额</label>
+                            <div class="col-sm-10">
+                                <input name="money" type="number" class="form-control" id="money" placeholder="金额">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="image" class="col-sm-2 control-label">图片</label>
+                            <div class="col-sm-10">
+                                <input name="file" type="file" class="form-control" id="image" placeholder="金额"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="description" class="col-xs-2 control-label">描述</label>
+                            <div class="col-sm-10">
+                                <textarea id="description" class="form-control" name="description"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.box-body -->
+                    <div class="box-footer">
+                        <button type="button" class="btn btn-default">取消</button>
+                        <button type="submit" class="btn btn-info pull-right">确定</button>
+                    </div>
+                    <!-- /.box-footer -->
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<script th:replace="import/script :: script"></script>
 </body>
 </html>
