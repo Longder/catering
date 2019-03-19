@@ -13,11 +13,24 @@ public class Dish extends BaseEntity{
      * 名称
      */
     private String name;
-
+    /**
+     * 类型
+     */
     private String type;
-
+    /**
+     * 描述
+     */
     private String description;
+    /**
+     * 金额
+     */
     private BigDecimal money;
-
+    /**
+     * 图片路径
+     */
     private String imageUrl;
+    /**
+     * 有效性
+     */
+    private Boolean enabled = true;
 }

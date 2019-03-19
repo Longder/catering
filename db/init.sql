@@ -18,6 +18,7 @@ create table if not exists dish
 	description_ text null,
 	type_ varchar(50) null,
 	money_ decimal(15,2) null,
+	enabled_ bit null,
 	img_url_ varchar(255) null
 );
 

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="import/head :: head"></head>
+<!--引入统一头-->
+<body>
+<section class="content-header">
+    <h1>&nbsp;</h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
+        <li class="active">菜品管理</li>
+    </ol>
+</section>
+<section class="content">
+    <div class="box">
+        <div class="box-header with-border">
+            <h3 class="box-title">菜品列表</h3>
+        </div>
+        <div class="box-body">
+            <div class="btn-group">
+                <a th:href="@{/admin/dish/toAdd}" class="btn btn-block btn-success btn-lg">新增菜品</a>
+            </div>
+            <table class="table table-hover table-bordered">
+                <tbody>
+                <tr>
+                    <th>序号</th>
+                    <th>名称</th>
+                    <th>类型</th>
+                    <th>金额</th>
+                    <th>操作</th>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+<!--引入统一JS-->
+<script th:replace="import/script :: script"></script>
+</body>
+</html>

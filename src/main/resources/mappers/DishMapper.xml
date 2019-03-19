@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.longder.catering.repository.DishRepository">
+
+    <insert id="insertOne" parameterType="com.longder.catering.entity.Dish" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO dish(name_,description_,money_,img_url_) VALUES(#{name},#{description},#{money},#{imageUrl})
+    </insert>
+
+    <select id="selectAll" resultMap="dishMap">
+      SELECT * FROM dish
+    </select>
+    <resultMap id="dishMap" type="com.longder.catering.entity.Dish">
+        <result column="name_" property="name"/>
+        <result column="type_" property="type"/>
+        <result column="description_" property="description"/>
+        <result column="enabled_" property="enabled"/>
+        <result column="money_" property="money_"/>
+        <result column="img_url_" property="imageUrl"/>
+    </resultMap>
+</mapper>
